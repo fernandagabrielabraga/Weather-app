@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+   
+    <script
+      src="https://kit.fontawesome.com/a1b4469fe7.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="head">
+      <div class="container">
+        <div class="mb-3">
+        <!--- <input 
+    type="text" 
+    class="form-control" 
+    id="formGroupExampleInput" 
+    placeholder="City Search"> -->
+    <form id="search-form">
+    <input
+    type="text"
+    placeholder="Search for a city"
+    autocomplete="off"
+    autofocus= "on"
+    id = "search-text-input"
+    />
+    <input type="submit" value="Search" />
+    </form>
+  </div>
+  <button id="position">
+    current Location
+  </button>
+  <i class="fas fa-search-location location-icon"></i>
+        <h1 id="searching-city">Saskatoon</h1>
+        
+        <h3 id="date">Monday, 8th November</h3>
+        <h3 id="hour"> 10:41 pm</h3>
+        <br/>
+        <i class="fas fa-moon weather-icon"></i>
+        <br />
+        <br />
+        <span id="conditions">
+          Clear
+          <br />
+        </span>
+        <span id = "temperature">
+          19
+         
+        </span>
+       <!-- <span id ="units">
+          <a href="#" id="celsius-link">°C</a>
+          | 
+          <a href="#" id="fahrenheit-link">°F </a>
+         </span> -->
+      </br>
+        <span id="feels-like">
+          Feels like -11
+        </span>
+       
+        <hr />
+        <div class="row">
+      <div class="col" >
+        Tue 
+        <br /> 
+        Nov 9
+      </div>
+      <div class="col" id="day-after">
+        <i class="fas fa-moon clear-icon"></i>
+        7
+      </div>
+      
+      <div class="col" id="day-after">
+        <i class="fas fa-snowflake snow-icon"></i>
+         1 
+      </div>
+      
+    </div>
+  </div>
+  
+        </div>
+      </div>
+      </div>
+      <address id="footer-info">
+   
+   This project was coded by <a href="mailto:fernanda.gabriela.braga@gmail.com">Fernanda Gabriela</a> and is open-sourced on <a href="https://github.com/fernandagabrielabraga/Weather-app.git">GitHub</a> and hosted on <a href="https://app.netlify.com/">Netlify</a>.
+
+      </address>
+  </body>
+   <script src="src/index.js"></script>
+</html>
