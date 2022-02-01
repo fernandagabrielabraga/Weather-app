@@ -80,6 +80,10 @@ function setWeatherInfo(response) {
 
   let cityLabelElement = document.querySelector("#searching-city");
   cityLabelElement.innerHTML = response.data.name;
+
+  let conditionElement = document.querySelector("#conditions");
+  conditionElement.innerHTML = response.data.weather[0].description;
+ 
 }
 
 function getPosition(position) {
@@ -90,3 +94,4 @@ function getPosition(position) {
 
   axios.get(apiUrl).then(setWeatherInfo);
 }
+
