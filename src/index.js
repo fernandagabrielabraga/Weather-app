@@ -76,7 +76,7 @@ function setWeatherInfo(response) {
   temperatureElement.innerHTML = `${Math.round(response.data.main.temp)}`;
 
   let feelsLikeElement = document.querySelector("#feels-like");
-  feelsLikeElement.innerHTML = `${Math.round(response.data.main.feels_like)}°C`;
+  feelsLikeElement.innerHTML = `Feels ${Math.round(response.data.main.feels_like)} °C`;
 
   let cityLabelElement = document.querySelector("#searching-city");
   cityLabelElement.innerHTML = response.data.name;
