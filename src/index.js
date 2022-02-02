@@ -83,7 +83,13 @@ function setWeatherInfo(response) {
 
   let conditionElement = document.querySelector("#conditions");
   conditionElement.innerHTML = response.data.weather[0].description;
- 
+
+  let windElement = document.querySelector("#wind");
+  windElement.innerHTML = `wind: ${response.data.wind.speed}`;
+
+  let humidityElement = document.querySelector("#humidity");
+  humidityElement.innerHTML = `humidity: ${(response.data.main.humidity)}%`; 
+  console.log(response.data)
 }
 
 function getPosition(position) {
