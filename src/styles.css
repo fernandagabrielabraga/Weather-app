@@ -32,25 +32,28 @@ h3 {
   font-family: sans-serif;
 }
 
-
+.button{
+  font-size: 17px;
+  padding: 3px 10px;
+  border-radius: 6px;
+}
 .clear-icon,
 .snow-icon {
   font-size: 30px;
 }
 
-.row {
-  font-size: 24px;
-  text-align: center;
-}
+
+
 #day-after {
   position: relative;
   top: 20px;
 }
 .form-control {
   position: relative;
-  right: 10px;
-  width: 280px;
+  right: ;
+  width: ;
 }
+
 .location-icon {
   position: relative;
   bottom: 45px;
@@ -58,9 +61,11 @@ h3 {
   font-size: 20px;
 }
 
-#position-button {
+.position-button {
   display: block;
   margin: 0 auto;
+  
+  
 }
 
 #footer-info {

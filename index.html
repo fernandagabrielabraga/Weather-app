@@ -21,28 +21,31 @@
   </head>
   <body>
     
-      <div class="container">
-        <div class="weather-app">
-        <div class="mb-3">
-        <!--- <input 
-    type="text" 
-    class="form-control" 
-    id="formGroupExampleInput" 
-    placeholder="City Search"> -->
-    <form id="search-form">
-    <input
-    type="text"
-    placeholder="Search for a city"
-    autocomplete="off"
-    autofocus= "on"
-    id = "search-text-input"
-    />
-    <input type="submit" value="Search" />
-    </form>
-     <button id="position-button">
-    Current Location
-  </button>
-  </div>
+    <div class="container">
+      <div class="weather-app">
+        <form id="search-form">
+          <div class="row">
+            <div class ="col-9">
+            <input
+              type="text"
+              class ="form-control"
+              placeholder="Search for a city"
+              autocomplete="off"
+              autofocus= "on"
+              id = "search-text-input" 
+              />
+              </div>
+              <div class="col-3">
+            <input type="submit" value="Search" class="button" />
+            </div>
+          </div>
+        </form>
+        <br />
+     <button class="button position-button" id="position-button">
+        Current Location
+      </button>
+      <br />
+      
  
         
         <h1 id="searching-city">Saskatoon</h1>
