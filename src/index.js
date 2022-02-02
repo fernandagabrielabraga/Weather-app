@@ -73,7 +73,7 @@ function getWeatherInfoByCity(city) {
 // this function update the html elements with weather info
 function setWeatherInfo(response) {
   let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = `${Math.round(response.data.main.temp)}°C`;
+  temperatureElement.innerHTML = `${Math.round(response.data.main.temp)}`;
 
   let feelsLikeElement = document.querySelector("#feels-like");
   feelsLikeElement.innerHTML = `${Math.round(response.data.main.feels_like)}°C`;
