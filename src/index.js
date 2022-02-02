@@ -57,7 +57,7 @@ function search(event) {
   getWeatherInfoByCity(searchInput.value);
 }
 
-let button = document.querySelector("#position");
+let button = document.querySelector("#position-button");
 button.addEventListener("click", getCurrentPosition);
 
 function getCurrentPosition() {
