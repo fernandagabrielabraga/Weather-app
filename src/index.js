@@ -66,24 +66,27 @@ function displayForecast(response) {
   
   let forecastHTML = `<div class="row">`;
   forecast.forEach(function (forecastDay, index) {
-    if (index < 5){
+    if (index < 6){
 
     forecastHTML =
-    forecastHTML +
-    `
+      forecastHTML +
+      `
     <div class="col-2" >
       <div class="weather-forecast-date">
         ${formatDay(forecastDay.dt)} </div>
         <img 
-          src ="https://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
+          src ="https://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png"
           alt = ""
           width ="50"
           />
           <div class= "weather-forecast-temperature">
           <span class = "weather-forecast-temperature-max">
-          ${Math.round(forecastDay.temp.max)} </span>
+          ${Math.round(forecastDay.temp.max)} °C </span>
+          <br/>
           <span class = "weather-forecast-temperature-min">
-          ${Math.round(forecastDay.temp.min)} </span>
+          ${Math.round(forecastDay.temp.min)} °C </span>
         </div>
       </div>
   `;
@@ -139,10 +142,12 @@ function setWeatherInfo(response) {
   conditionElement.innerHTML = response.data.weather[0].description;
 
   let windElement = document.querySelector("#wind");
-  windElement.innerHTML = `wind: ${response.data.wind.speed}`;
+  windElement.innerHTML = `wind: ${Math.round(
+    3.6 * response.data.wind.speed
+  )} km/h`;
 
   let humidityElement = document.querySelector("#humidity");
-  humidityElement.innerHTML = `humidity: ${response.data.main.humidity}%`;
+  humidityElement.innerHTML = `humidity: ${response.data.main.humidity} %`;
   
 
   let iconElement = document.querySelector("#weather-icon");

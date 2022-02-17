@@ -130,9 +130,11 @@ li {
   font-size: 20px;
   color: black;
   opacity: 1.5;
+  text-align: center;
 }
 .weather-forecast-temperature {
-  font-size: 16px;
+  font-size: 14px;
+  text-align: center;
 
 }
 .weather-forecast-temperature-min {
