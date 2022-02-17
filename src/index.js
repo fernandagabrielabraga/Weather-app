@@ -39,33 +39,45 @@ let month = months[currentDate.getMonth()];
 newDate.innerHTML = `${day}, ${month} ${date}`;
 currentTime.innerHTML = `${hours}:${minutes}`;
 
+
+
+// initialization
+let apiKey = "52bbbc39482454c0d5175f36ac3f0688";
+let units = "metric";
+
+getWeatherInfoByCity("saskatoon");
+
+
+
+
+
 //display forecast 
-function displayForecast() {
+function displayForecast(response) {
+  let forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
   
   let forecastHTML = `<div class="row">`;
-  let days = ["Thu", "Fri", "Sat", "Sun"];
-  days.forEach(function (day) {
-  forecastHTML = 
-  forecastHTML +
+  
+  forecast.forEach(function (forecastDay) {
+  forecastHTML =
+    forecastHTML +
     `
     <div class="col-2" >
       <div class="weather-forecast-date">
-        ${day} </div>
+        ${forecastDay.dt} </div>
         <img 
-          src ="https://openweathermap.org/img/wn/50d@2x.png"
+          src ="https://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
           alt = ""
           width ="50"
           />
           <div class= "weather-forecast-temperature">
           <span class = "weather-forecast-temperature-max">
-          18° </span>
+          ${forecastDay.temp.max} </span>
           <span class = "weather-forecast-temperature-min">
-          12°
-         </span>
+          ${forecastDay.temp.min} </span>
         </div>
       </div>
-    
   `;
 });
 
@@ -74,13 +86,6 @@ function displayForecast() {
   forecastElement.innerHTML = forecastHTML;
 
 }
-
-// initialization
-let apiKey = "52bbbc39482454c0d5175f36ac3f0688";
-let units = "metric";
-
-getWeatherInfoByCity("saskatoon");
-
 // events
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", search);
@@ -137,16 +142,25 @@ function setWeatherInfo(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
 
-  displayForecast();
+  
+  getForecast(response.data.coord);
 }
+
+function getForecast(coordinates) {
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude={part}&appid=${apiKey}&units=metric`;
+  
+  axios.get(apiUrl).then(displayForecast);
+}
+
 
 function getPosition(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
 
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(setWeatherInfo);
+  
 }
 
 function showFarenheitTemperature(event) {
